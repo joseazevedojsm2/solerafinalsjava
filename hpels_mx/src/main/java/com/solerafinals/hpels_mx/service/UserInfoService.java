@@ -4,6 +4,7 @@ import com.solerafinals.hpels_mx.entity.UserInfo;
 import com.solerafinals.hpels_mx.repository.UserInfoRepository;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +17,20 @@ public class UserInfoService {
         this.repository = repository;
     }
 
+    public Boolean isEmail(String email){
+        String regexPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+                + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+
+        return Pattern.compile(regexPattern)
+                .matcher(email)
+                .matches();
+    }
+
+
     public boolean userValidation(UserInfo user){
         if(user.getFirst_name().isEmpty() || user.getLast_name().isEmpty()
-                || user.getEmail().isEmpty() || user.getPhone_number()<900000000)
+                || user.getEmail().isEmpty() || user.getPhone_number()<900000000
+                || isEmail(user.getEmail()) )
             return false;
 
         return true;
