@@ -5,6 +5,7 @@ import Button from "../UI/Button";
 import Card from "../UI/Card";
 
 import classes from './AddUser.module.css';
+import './User.css';
 
 const AddUser = props => {
     const [firstName, setFirstName] = useState('');
@@ -33,12 +34,12 @@ const AddUser = props => {
             console.error("error: " + err);
         });
     }
-
+    //className={classes.input}
 
     return(
-        <Card className={classes.input}>
+        <React.Fragment> 
+            <form class="form-style-5" onSubmit={addUserHandler}>
             <h3>Create User</h3>
-            <form onSubmit={addUserHandler}>
                 <label htmlFor="firstName">First Name</label>
                 <input id="firstName" type="text" value={firstName} onChange={event => { setFirstName(event.target.value)}}/>
                 <label htmlFor="lastName">Last Name</label>
@@ -49,7 +50,7 @@ const AddUser = props => {
                 <input id="email" type="email" value={email} onChange={event => { setEmail(event.target.value)}}/>
                 <Button type="submit">Add User</Button>
             </form>
-        </Card>
+        </React.Fragment>
     );
 }
 

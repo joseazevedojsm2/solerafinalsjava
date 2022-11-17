@@ -57,9 +57,9 @@ const EditUser = props => {
     }
 
     return(
-        <Card className={classes.input}>
-            <h3>Edit User</h3>
-            <form onSubmit={updateUserHandler}>
+        <React.Fragment>
+            <form  class="form-style-5" onSubmit={updateUserHandler}>
+                <h3>Edit User</h3>
                 <label htmlFor="firstName">First Name</label>
                 <input id="firstName" type="text" value={firstName} onChange={event => { setFirstName(event.target.value)}}/>
                 <label htmlFor="lastName">Last Name</label>
@@ -70,9 +70,9 @@ const EditUser = props => {
                 <input id="email" type="email" value={email} onChange={event => { setEmail(event.target.value)}}/>
                 <Button type="submit">Save</Button>
                 <Button type="button" onClick={handleCancel} >Cancel</Button>
-                <button type="button" onClick={handleRemove} >Remove</button>
+                <Button type="button" onClick={handleRemove} >Remove</Button>
             </form>
-        </Card>
+        </React.Fragment>
     );
 }
 
