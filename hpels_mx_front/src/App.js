@@ -20,7 +20,7 @@ function App() {
       {shouldShowAdd?
         <AddUser API_URL={API_URL} updateUsers={updateUsers} />
       :
-        <EditUser API_URL={API_URL} updateUsers={updateUsers} userToEdit={userToEdit} />
+        <EditUser API_URL={API_URL} updateUsers={updateUsers} userToEdit={userToEdit} setShouldShowAdd={setShouldShowAdd} />
       }
 
       <ListUser API_URL={API_URL} refreshUsers={refreshUsers} setUserToEdit={setUserToEdit} setShouldShowAdd={setShouldShowAdd} />

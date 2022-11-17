@@ -14,15 +14,6 @@ const AddUser = props => {
 
     const addUserHandler = async (event) => {
         event.preventDefault();
-        
-        console.log(firstName);
-        console.log(lastName);
-        console.log(phoneNumber);
-        console.log(email);
-
-     
-
-        console.log("sd");
 
         await axios.post(props.API_URL+"/userinfo/add", {
             first_name: firstName,

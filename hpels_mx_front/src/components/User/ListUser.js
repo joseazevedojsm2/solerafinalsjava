@@ -29,8 +29,8 @@ const ListUser = props => {
             <h2>Users</h2>
             {users.map((user) => (
                 <Card style={{cursor:"pointer"}} className={classes.users} customClickEvent={onUserClickHandler} dataKey={user.id} key={user.id}>
-                    <span>{user.first_name+" "+user.last_name}</span><br/>
-                    <span>{user.email} - {user.phone_number}</span>    
+                    <div style={{pointerEvents:"none"}}><span>{user.first_name+" "+user.last_name}</span><br/>
+                    <span>{user.email} - {user.phone_number}</span></div>
                 </Card>
             ))}
         </>
