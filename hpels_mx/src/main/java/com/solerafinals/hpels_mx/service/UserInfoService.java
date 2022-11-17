@@ -30,7 +30,7 @@ public class UserInfoService {
     public boolean userValidation(UserInfo user){
         if(user.getFirst_name().isEmpty() || user.getLast_name().isEmpty()
                 || user.getEmail().isEmpty() || user.getPhone_number()<900000000
-                || isEmail(user.getEmail()) )
+                || !isEmail(user.getEmail()) )
             return false;
 
         return true;
